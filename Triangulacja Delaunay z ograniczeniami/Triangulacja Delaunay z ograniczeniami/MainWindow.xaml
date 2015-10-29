@@ -1,0 +1,52 @@
+﻿<Window x:Class="Triangulacja_Delaunay_z_ograniczeniami.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Triangulacja_Delaunay_z_ograniczeniami"
+        mc:Ignorable="d"
+        Title="Triangulacja Delaunay z ograniczeniami"
+        Width="800" Height="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="600"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+
+            <Button Grid.Row="0" Grid.Column="1" 
+                        Name="btnMakePoints" 
+                        Click="btnMakePoints_Click" 
+                        Content="Random" 
+                        IsDefault="True"
+                        />
+            <Button Grid.Row="1" Grid.Column="1"
+                        Name="btnFindDelaunay" 
+                        Click="btnFindDelaunay_Click"  
+                        Content="Delaunay" 
+                        />
+            <TextBlock Grid.Row="3" Grid.Column="1"
+                       Name="txtBlkTimer" 
+                       Text="0.000s" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"
+                       />
+        </Grid>
+        <Border Padding="20" Background="Gray">
+            <Canvas Margin="3" 
+                    ClipToBounds="True" 
+                    Name="drawingCanvas" 
+                    HorizontalAlignment="Stretch" 
+                    VerticalAlignment="Stretch" 
+                    Background="Gray" 
+                    Grid.Column="0"
+                    />
+        </Border>
+    </Grid>
+</Window>
