@@ -17,14 +17,14 @@ namespace Triangulacja_Delaunay_z_ograniczeniami
         /// Interaction logic for MainWindow.xaml
         /// </summary>
         private List<Vertex> Vertices;
-        private const int NumberOfVertices = 500;
+        public int NumberOfVertices = 50;
         VoronoiMesh<Vertex, Cell, VoronoiEdge<Vertex, Cell>> voronoiMesh;
 
         public MainWindow()
         {
             InitializeComponent();
-            this.Title += string.Format(" ({0} points)", NumberOfVertices);
-
+            //this.Title += string.Format(" ({0} punktów)", NumberOfVertices);
+            TxtPktCount.Text = string.Format("Ilość punktów: {0}", NumberOfVertices);
             btnFindDelaunay.IsEnabled = false;
         }
 
@@ -104,6 +104,21 @@ namespace Triangulacja_Delaunay_z_ograniczeniami
         static int IsLeft(Point a, Point b, Point c)
         {
             return ((b.X - a.X) * (c.Y - a.Y) - (b.Y - a.Y) * (c.X - a.X)) > 0 ? 1 : -1;
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            if(NumberOfVertices < 901 || NumberOfVertices > 1)
+            NumberOfVertices += 10;
+
+            TxtPktCount.Text = string.Format("Ilość punktów: {0}", NumberOfVertices);
+        }
+
+        private void btnSub_Click(object sender, RoutedEventArgs e)
+        {
+            if (NumberOfVertices < 901 || NumberOfVertices > 1)
+                NumberOfVertices -= 10;
+            TxtPktCount.Text = string.Format("Ilość punktów: {0}", NumberOfVertices);
         }
     }
 }

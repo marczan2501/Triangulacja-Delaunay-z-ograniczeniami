@@ -6,34 +6,58 @@
         xmlns:local="clr-namespace:Triangulacja_Delaunay_z_ograniczeniami"
         mc:Ignorable="d"
         Title="Triangulacja Delaunay z ograniczeniami"
-        Width="800" Height="600">
+        Width="900" Height="700">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="600"/>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="700"/>
+            <ColumnDefinition Width="200*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
+                <!--0 generuj punkty-->
                 <RowDefinition Height="25"/>
+                <!--1 triangulacja-->
+                <RowDefinition Height="25"/>
+                <!--2 blank-->
+                <RowDefinition Height="25"/>
+                <!--3 add/sub-->
                 <RowDefinition Height="*"/>
+                <!--4 blank -->
                 <RowDefinition Height="25"/>
+                <!--5 -->
             </Grid.RowDefinitions>
 
             <Button Grid.Row="0" Grid.Column="1" 
                         Name="btnMakePoints" 
                         Click="btnMakePoints_Click" 
-                        Content="Random" 
+                        Content="Generuj punkty" 
                         IsDefault="True"
                         />
             <Button Grid.Row="1" Grid.Column="1"
                         Name="btnFindDelaunay" 
                         Click="btnFindDelaunay_Click"  
-                        Content="Delaunay" 
+                        Content="Triangulacja Delaunay"
                         />
-            <TextBlock Grid.Row="3" Grid.Column="1"
+            <TextBlock Grid.Row="2" Grid.Column="1"
+                       Name="TxtPktCount" 
+                       Text="Ilość punktów:" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"
+                       />
+            <Button Grid.Row="3"
+                        Name="btnAdd" 
+                        Click="btnAdd_Click"  
+                        Content="Dodaj pkt" Margin="0,0,115,0" 
+                        />
+            <Button Grid.Row="3"
+                        Name="btnSub" 
+                        Click="btnSub_Click"  
+                        Content="Odejmij pkt" Margin="105,0,00,0" 
+                        />
+            <TextBlock Grid.Row="5" Grid.Column="1"
                        Name="txtBlkTimer" 
-                       Text="0.000s" 
+                       Text="0 faces" 
                        HorizontalAlignment="Center" 
                        VerticalAlignment="Center"
                        />
